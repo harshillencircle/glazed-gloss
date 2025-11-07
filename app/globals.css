@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+.font-termina {
+  font-family: 'Termina', sans-serif;
+}
+
+.font-ivypresto {
+  font-family: 'IvyPresto Display', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 52px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
