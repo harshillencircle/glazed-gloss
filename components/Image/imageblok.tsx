@@ -3,14 +3,12 @@ import Image from "next/image";
 
 type Props = {
   blok: {
-    media?: {
-      filename: string;
-      alt?: string;
-      fieldtype?: string;
-    };
+    media?: { filename: string; alt?: string; fieldtype?: string };
     alt_text?: string;
-    width?: number;
-    height?: number;
+    width?: number | string;
+    height?: number | string;
+    width_mobile?: number | string;
+    height_mobile?: number | string;
     rounded?: boolean;
     full_width?: boolean;
     object_fit?: "cover" | "contain" | "fill";
@@ -21,52 +19,38 @@ export default function ImageBlock({ blok }: Props) {
   const file = blok.media?.filename;
   if (!file) return null;
 
-  const isVideo =
-    file.endsWith(".mp4") ||
-    file.endsWith(".webm") ||
-    file.endsWith(".mov") ||
-    file.endsWith(".ogg");
+  const parsePx = (value?: string | number) =>
+    typeof value === "string" ? parseInt(value.replace("px", ""), 10) : value;
 
-  const isGif = file.endsWith(".gif");
+  const width = parsePx(blok.width);
+  const height = parsePx(blok.height);
+  const widthMobile = parsePx(blok.width_mobile);
+  const heightMobile = parsePx(blok.height_mobile);
 
-  const width = blok.width || 1200;
-  const height = blok.height || 800;
-
-  const rounded = blok.rounded ? "rounded-lg" : "";
+  const rounded = blok.rounded ? "rounded-[10px]" : "";
   const fit = blok.object_fit || "cover";
-  const fullWidth = blok.full_width ? "w-full" : "";
+  const fullWidth = blok.full_width;
 
   return (
     <div
       {...storyblokEditable(blok)}
-      className={`flex justify-center ${fullWidth} my-4`}
+      className={`storyblok-image flex justify-center items-center ${fullWidth ? "w-full" : ""}`}
+      style={
+        {
+          "--img-w": width ? `${width}px` : "auto",
+          "--img-h": height ? `${height}px` : "auto",
+          "--img-w-mobile": widthMobile ? `${widthMobile}px` : "auto",
+          "--img-h-mobile": heightMobile ? `${heightMobile}px` : "auto",
+        } as React.CSSProperties
+      }
     >
-      {isVideo ? (
-        <video
-          src={file}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className={`${rounded} ${fullWidth} object-${fit}`}
-        />
-      ) : isGif ? (
-        <img
-          src={file}
-          alt={blok.alt_text || blok.media?.alt || "Media"}
-          className={`${rounded} ${fullWidth} object-${fit}`}
-          width={width}
-          height={height}
-        />
-      ) : (
-        <Image
-          src={file}
-          alt={blok.alt_text || blok.media?.alt || "Media"}
-          width={width}
-          height={height}
-          className={`${rounded} ${fullWidth} object-${fit}`}
-        />
-      )}
+      <Image
+        src={file}
+        alt={blok.alt_text || blok.media?.alt || "Media"}
+        width={widthMobile || 600}
+        height={heightMobile || 400}
+        className={`${rounded} object-${fit} h-auto`}
+      />
     </div>
   );
 }

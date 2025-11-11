@@ -6,10 +6,22 @@
 
 .font-ivypresto {
   font-family: 'IvyPresto Display', serif;
-  font-weight: 400;
   font-style: normal;
-  font-size: 52px;
   line-height: 100%;
   letter-spacing: 0;
-  text-transform: uppercase;
 }
+
+.storyblok-image img {
+  width: var(--img-w);
+  height: var(--img-h);
+  max-width: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .storyblok-image img {
+    width: var(--img-w-mobile);
+    height: var(--img-h-mobile);
+  }
+}
+
