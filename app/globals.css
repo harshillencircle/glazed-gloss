@@ -25,3 +25,14 @@
   }
 }
 
+.grid-img {
+  top: var(--top-desktop);
+  left: var(--left-desktop);
+}
+
+@media (max-width: 768px) {
+  .grid-img {
+    top: var(--top-mobile);
+    left: var(--left-mobile);
+  }
+}
