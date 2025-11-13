@@ -8,7 +8,7 @@ export default function ServicesSection({ blok }: any) {
   const gridImage = blok.cards?.find((card: any) => card.component === "grid_image");
 
   return (
-    <section className="relative bg-[#F2F0EA] flex max-xl:flex-wrap justify-center items-center px-7 md:px-14 pt-10 pb-15 md:py-20 xl:gap-20">
+    <section className="relative bg-[#F2F0EA] flex max-xl:flex-wrap justify-center items-center px-7 md:px-14 pt-10 pb-15 md:py-20 gap-10 xl:gap-20">
       <div className="w-[473px] h-[296px] flex flex-col justify-center items-start gap-10">
         <div className="space-y-7">
           <h2 className="font-termina font-medium text-xs md:text-[14px] text-[#7A5238] leading-[100%] tracking-[0] uppercase">{blok.headline}</h2>
@@ -28,8 +28,8 @@ export default function ServicesSection({ blok }: any) {
         </div>
       </div>
 
-      <div className="w-full">
-        <div className="relative">
+      <div className="w-full md:w-[849px] mx-auto">
+        <div className="relative left-0 max-[450px]:-left-[10%]">
           {blok.cards?.map((card: any) => (
             <StoryblokServerComponent blok={card} key={card._uid} />
           ))}
@@ -63,7 +63,7 @@ export default function ServicesSection({ blok }: any) {
 
           {/* Mobile dropdown */}
           <details className="relative w-[300px] max-w-xs md:hidden group transition-all duration-300">
-            <summary className="list-none flex items-center justify-between px-4 py-3 bg-white border rounded-[10px] text-[10px] font-termina uppercase cursor-pointer shadow-sm select-none">
+            <summary className="list-none flex items-center justify-between px-4 py-3 bg-white rounded-[10px] text-[10px] font-termina uppercase cursor-pointer select-none">
               <span>{blok.service_tags?.[0] || "Select Service"}</span>
               <Image src="/Vector.svg" alt="Dropdown Icon" width={12} height={24} />
             </summary>

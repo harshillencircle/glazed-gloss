@@ -14,8 +14,6 @@
 .storyblok-image img {
   width: var(--img-w);
   height: var(--img-h);
-  max-width: 100%;
-  object-fit: cover;
 }
 
 @media (max-width: 768px) {
