@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function ServiceCard({ blok }: any) {
   return (
-    <div className="absolute top-[115px] left-[65px] z-10 md:top-[313px] md:left-[51px] flex justify-center items-center bg-[#FAF9F6] p-2.5 rounded-lg gap-2.5 md:gap-5 shadow-md transition-all duration-500">
+    <div className="absolute top-[115px] left-[65px] z-1 md:top-[313px] md:left-[51px] flex justify-center items-center bg-[#FAF9F6] p-2.5 rounded-lg gap-2.5 md:gap-5 shadow-md transition-all duration-500">
       {blok.image?.filename && (
         <Image
           src={blok.image.filename}

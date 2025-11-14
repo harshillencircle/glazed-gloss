@@ -10,6 +10,11 @@ import ServicesSection from "@/components/servicessection/ServicesSection";
 import GridImage from "@/components/gridimage/GridImage";
 import ServiceCard from "@/components/servicecard/ServiceCard";
 import ImageBlock from "@/components/Image/imageblok";
+import RetailPartnersSection from "@/components/retailpartnerssection/RetailPartnersSection";
+import RetailPartnerLogo from "@/components/retailpartnerlogo/RetailPartnerLogo";
+import CapabilitiesSection from "@/components/capabilitiessection/CapabilitiesSection";
+import ProjectCard from "@/components/projectcard/ProjectCard";
+import WorkSection from "@/components/worksection/WorkSection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +42,11 @@ storyblokInit({
     service_card: ServiceCard,
     grid_image: GridImage,
     image: ImageBlock,
+    retail_partners_section: RetailPartnersSection,
+    retail_partner_logo: RetailPartnerLogo,
+    capabilities_section: CapabilitiesSection,
+    project_card: ProjectCard,
+    work_section: WorkSection,
   },
 });
 

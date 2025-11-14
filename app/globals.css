@@ -2,6 +2,9 @@
 
 .font-termina {
   font-family: 'Termina', sans-serif;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
 }
 
 .font-ivypresto {
@@ -33,4 +36,20 @@
     top: var(--top-mobile);
     left: var(--left-mobile);
   }
+}
+
+/* Marquee animation: moves content left continuously */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
 }
