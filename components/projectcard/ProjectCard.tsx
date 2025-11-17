@@ -6,7 +6,7 @@ export default function ProjectCard({ blok }: any) {
     return (
         <section {...storyblokEditable(blok)} className="flex gap-7">
             <div className="flex flex-col gap-4.5">
-                <div className="w-[330px] h-[395px] object-cover">
+                <div className="w-full md:w-[330px] h-[395px] object-cover">
                     <Image src={blok.project_image.filename} alt="Project Card Image" width={330} height={395} className="object-cover h-full"/>
                 </div>
 
