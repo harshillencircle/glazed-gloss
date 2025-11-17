@@ -45,8 +45,8 @@ storyblokInit({
     retail_partners_section: RetailPartnersSection,
     retail_partner_logo: RetailPartnerLogo,
     capabilities_section: CapabilitiesSection,
-    project_card: ProjectCard,
     work_section: WorkSection,
+    project_card: ProjectCard,
   },
 });
 
