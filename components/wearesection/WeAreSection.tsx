@@ -4,8 +4,6 @@ import Link from "next/link";
 
 export default function WeAreSection({ blok }: any) {
 
-    console.log(blok.description);
-
     return (
         <section
             {...storyblokEditable(blok)}

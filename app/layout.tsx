@@ -17,6 +17,7 @@ import ProjectCard from "@/components/projectcard/ProjectCard";
 import WorkSection from "@/components/worksection/WorkSection";
 import WeAreSection from "@/components/wearesection/WeAreSection";
 import TrustSection from "@/components/trustsection/TrustSection";
+import WeDoSection from "@/components/wedosection/WeDoSection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +52,7 @@ storyblokInit({
     project_card: ProjectCard,
     we_are_section: WeAreSection,
     trust_section: TrustSection,
+    we_do_section: WeDoSection,
   },
 });
 
