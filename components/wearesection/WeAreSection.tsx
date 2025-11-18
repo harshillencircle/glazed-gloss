@@ -9,7 +9,7 @@ export default function WeAreSection({ blok }: any) {
     return (
         <section
             {...storyblokEditable(blok)}
-            className="relative z-10 flex max-xl:flex-col justify-center items-center bg-[#F2F0EA] xl:pr-[100px] gap-2.5 md:gap-10 overflow-hidden"
+            className="relative z-1 flex max-xl:flex-col justify-center items-center bg-[#F2F0EA] xl:pr-[100px] gap-2.5 md:gap-10 overflow-hidden"
         >
             {/* BACKGROUND IMAGE */}
             <div className="absolute -z-10 -bottom-15 -left-20 opacity-10 -rotate-6">
