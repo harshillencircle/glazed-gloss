@@ -9,8 +9,6 @@ import "swiper/css/pagination";
 
 export default function WeDoSection({ blok }: any) {
 
-    console.log(blok.mobile_image.filename);
-
     return (
         <section {...storyblokEditable(blok)}
             className="relative flex max-md:flex-col justify-center items-center bg-[#8D8D8D] px-[15px] md:pr-[55px] mt-15 md:pl-10 pb-20 md:gap-10">
