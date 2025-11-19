@@ -2,15 +2,15 @@ import { storyblokEditable } from "@storyblok/react";
 
 export default function TrustSection({ blok }: any) {
     return (
-        <section {...storyblokEditable(blok)} className="flex flex-col justify-center items-center px-5 md:px-24 py-20 gap-10"  >
+        <section {...storyblokEditable(blok)} className="flex flex-col justify-center items-center px-5 md:px-24 py-20 gap-10">
             <h2 className="text-[36px] md:text-[52px] font-ivypresto font-normal text-center uppercase">
                 {blok.title}
             </h2>
 
-            <div className="flex max-xl:flex-wrap max-md:flex-col justify-center items-center gap-7">
+            <div className="flex max-xl:flex-wrap max-md:flex-col justify-center items-center gap-4">
 
                 {blok.trusts?.map((trust: any, index: any) => (
-                    <div key={trust._uid} className="flex max-md:flex-col justify-center items-center gap-7 w-full md:w-auto">
+                    <div key={trust._uid} className="flex max-md:flex-col justify-center items-center gap-4 w-full md:w-auto">
 
                         {index !== 0 && (
                             <>
