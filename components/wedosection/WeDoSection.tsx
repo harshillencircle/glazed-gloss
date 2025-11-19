@@ -1,41 +1,79 @@
+'use client';
+
 import { renderRichText, storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
 
 export default function WeDoSection({ blok }: any) {
 
+    console.log(blok.mobile_image.filename);
+
     return (
-        <section {...storyblokEditable(blok)} className="relative flex bg-[#8D8D8D] pr-[55px] mt-15 pl-10 pb-20 gap-10">
-            <div className="relative z-1 -top-15">
-                <Image src={blok.left_image.filename} alt="Tower Image" width={288} height={975} className="object-cover" />
+        <section {...storyblokEditable(blok)}
+            className="relative flex max-md:flex-col justify-center items-center bg-[#8D8D8D] px-[15px] md:pr-[55px] mt-15 md:pl-10 pb-20 md:gap-10">
+
+            <div className="relative z-1 -top-15 hidden md:flex shrink-0 w-[288px] min-w-[288px] h-[975px]">
+                <Image
+                    src={blok.left_image.filename}
+                    alt="Tower Image"
+                    width={288}
+                    height={975}
+                    className="object-cover rounded-[10px]"
+                />
             </div>
 
-            <div className="flex flex-col gap-7">
-                <div className="flex flex-col pt-15 gap-7">
+            <div className="relative z-1 -top-15 flex md:hidden shrink-0 w-[316px] min-w-[316px] h-[520px]">
+                <Image
+                    src={blok.mobile_image.filename}
+                    alt="Tower Image"
+                    width={316}
+                    height={520}
+                    className="rounded-[10px]"
+                />
+            </div>
+
+            <div className="flex flex-col max-md:justify-center max-md:items-center gap-7 w-full overflow-hidden">
+                <div className="flex flex-col flex-wrap md:pt-15 gap-7">
                     <h2 className="text-sm text-[#FAF9F6] font-termina font-medium uppercase">
                         {blok.title}
                     </h2>
 
-                    <h2 className="text-[52px] text-[#DFF624] font-ivypresto font-normal uppercase">
+                    <h2 className="text-[36px] md:text-[52px] text-[#DFF624] font-ivypresto font-normal uppercase">
                         {blok.subtitle}
                     </h2>
                 </div>
 
-                <div className="flex gap-7">
+                <Swiper
+                    modules={[Pagination]}
+                    pagination={{ clickable: true }}
+                    spaceBetween={28}
+                    slidesPerView="auto"
+                    breakpoints={{
+                        768: { slidesPerView: "auto" },
+                    }}
+                    className="pb-10! swiper-overflow-fix w-full!"
+                >
                     {blok.service_items?.map((item: any) => (
-                        <div key={item._uid} className="flex flex-col w-[158px] gap-3.5">
-                            <h4 className="text-xl text-[#FAF9F6] font-ivypresto font-normal uppercase">
-                                {item.heading}
-                            </h4>
-                            <div className="flex flex-col text-sm text-[#FAF9F6] font-termina font-normal uppercase gap-3.5"
-                                dangerouslySetInnerHTML={{
-                                    __html: renderRichText(item.sub_items) || "",
-                                }}
-                            ></div>
-                        </div>
+                        <SwiperSlide key={item._uid} className="h-auto w-auto!">
+                            <div className="flex flex-col gap-3.5 max-w-[158px]">
+                                <h4 className="text-xl text-[#FAF9F6] font-ivypresto font-normal uppercase">
+                                    {item.heading}
+                                </h4>
+                                <div
+                                    className="flex flex-col text-sm text-[#FAF9F6] font-termina font-normal uppercase gap-3.5"
+                                    dangerouslySetInnerHTML={{
+                                        __html: renderRichText(item.sub_items) || "",
+                                    }}
+                                ></div>
+                            </div>
+                        </SwiperSlide>
                     ))}
-                </div>
-
+                </Swiper>
             </div>
         </section>
+
     );
 }

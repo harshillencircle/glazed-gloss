@@ -53,3 +53,18 @@
   width: max-content;
   animation: marquee 20s linear infinite;
 }
+
+/* SWIPER WHITE RADIO-BUTTON STYLE DOTS */
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background: transparent !important;
+  border: 2px solid #FAF9F6 !important; /* white circle border */
+  opacity: 1 !important;
+  border-radius: 50%;
+}
+
+.swiper-pagination-bullet-active {
+  background: #FAF9F6 !important; /* filled white */
+  border: 2px solid #FAF9F6 !important;
+}
