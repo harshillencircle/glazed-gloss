@@ -5,13 +5,13 @@ import Link from "next/link";
 export default function BeautySection({ blok }: any) {
 
     return (
-        <section {...storyblokEditable(blok)} className="flex max-lg:flex-col justify-center items-center bg-[#F2F0EA] px-[100px] py-20 gap-[55px]">
+        <section {...storyblokEditable(blok)} className="flex max-lg:flex-col justify-center items-center bg-[#F2F0EA] px-5 md:px-[100px] py-20 gap-10 md:gap-[55px] overflow-hidden">
             <div className="flex flex-col gap-7">
-                <h2 className="text-sm text-[#7A5238] font-termina font-medium uppercase">
+                <h2 className="text-[12px] md:text-sm text-[#7A5238] font-termina font-medium uppercase">
                     {blok.label}
                 </h2>
 
-                <h2 className="text-[52px] font-ivypresto font-normal uppercase">
+                <h2 className="text-[36px] md:text-[52px] font-ivypresto font-normal uppercase">
                     {blok.heading}
                 </h2>
 
@@ -34,11 +34,10 @@ export default function BeautySection({ blok }: any) {
                     ))}
                 </div>
 
-                <div className="w-fit bg-[#DFF624] items-center rounded-[10px] px-7 py-2.5">
-                    <Link href={blok.button_link} className="text-[16px] font-termina font-normal uppercase">{blok.button_text}
+                <div className="flex justify-center md:justify-start items-center">
+                    <Link href={blok.button_link} className="bg-[#DFF624] items-center rounded-[10px] px-7 py-2.5 text-[16px] font-termina font-normal uppercase">{blok.button_text}
                     </Link>
                 </div>
-
             </div>
 
             <div className="flex flex-col gap-10">
@@ -59,7 +58,7 @@ export default function BeautySection({ blok }: any) {
                         <Image src="./weui_arrow-filled.svg" alt="dropdown" width={12} height={24} className="object-cover" />
                     </summary>
 
-                    <div className="absolute mt-2 left-0 right-0 bg-white shadow-xl rounded-lg z-20">
+                    <div className="absolute mt-2 left-0 right-0 bg-white shadow-xl rounded-lg z-1">
                         {blok.tabs?.map((tab: any, index: any) => (
                             <Link
                                 key={index}
@@ -72,11 +71,14 @@ export default function BeautySection({ blok }: any) {
                     </div>
                 </details>
 
-                <div className="flex gap-7">
+                <div className="flex w-full overflow-x-auto gap-7 md:overflow-visible">
                     {blok.tab_images?.map((img: any) => (
-                        <Image key={img._uid} src={img.image?.filename} alt="Tab Images" width={197} height={486} className="object-cover rounded-[10px] w-[197px] h-[486px] max-w-[197px] max-h-[486px]" />
+                        <div key={img._uid} className="flex shrink-0">
+                            <Image src={img.image?.filename} alt="Tab Images" width={197} height={486} className="object-cover rounded-[10px] w-[300px] md:w-[197px] h-[365px] md:h-[486px]" />
+                        </div>
                     ))}
                 </div>
+
             </div>
         </section>
     );

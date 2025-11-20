@@ -21,7 +21,7 @@ export default function WorkSection({ blok }: any) {
                     <Image src="./weui_arrow-filled.svg" alt="dropdown" width={12} height={24} className="object-cover" />
                 </summary>
 
-                <div className="absolute mt-2 left-0 right-0 bg-white shadow-xl rounded-lg z-20">
+                <div className="absolute mt-2 left-0 right-0 bg-white shadow-xl rounded-lg z-1">
                     {blok.tabs?.map((tab: any) => (
                         <Link
                             key={tab._uid}
