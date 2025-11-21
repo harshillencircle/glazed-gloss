@@ -13,7 +13,7 @@ export default function ReviewSection({ blok }: any) {
                     {blok.label}
                 </h2>
 
-                <h2 className="text-[36px] md:text-[52px] text-[#DFF624] font-ivypresto font-normal uppercase">
+                <h2 className="text-[36px] md:text-[52px] text-[#DFF624] font-ivypresto text-start md:text-center font-normal uppercase">
                     {blok.heading}
                 </h2>
 
