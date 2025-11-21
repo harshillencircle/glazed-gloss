@@ -1,6 +1,9 @@
+"use client";
+
 import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function BeautySection({ blok }: any) {
 
@@ -58,7 +61,7 @@ export default function BeautySection({ blok }: any) {
                         <Image src="./weui_arrow-filled.svg" alt="dropdown" width={12} height={24} className="object-cover" />
                     </summary>
 
-                    <div className="absolute mt-2 left-0 right-0 bg-white shadow-xl rounded-lg z-1">
+                    <div className="absolute mt-2 left-0 right-0 bg-white shadow-xl rounded-lg z-2">
                         {blok.tabs?.map((tab: any, index: any) => (
                             <Link
                                 key={index}
@@ -71,14 +74,36 @@ export default function BeautySection({ blok }: any) {
                     </div>
                 </details>
 
-                <div className="flex w-full overflow-x-auto gap-7 md:overflow-visible">
+                <div className="hidden md:flex w-full justify-center gap-7">
                     {blok.tab_images?.map((img: any) => (
-                        <div key={img._uid} className="flex shrink-0">
-                            <Image src={img.image?.filename} alt="Tab Images" width={197} height={486} className="object-cover rounded-[10px] w-[300px] md:w-[197px] h-[365px] md:h-[486px]" />
+                        <div key={img._uid} className="flex">
+                            <Image src={img.image?.filename} alt="Tab Images" width={197} height={486} className="object-cover rounded-[10px] w-[300px] md:max-w-[197px] h-[365px] md:h-[486px]" />
                         </div>
                     ))}
                 </div>
 
+                <div className="md:hidden">
+                    <Swiper
+                        slidesPerView={"auto"}
+                        centeredSlides={true}
+                        spaceBetween={28}
+                        freeMode={true}
+                        initialSlide={Math.floor((blok.tab_images?.length || 1) / 2)}
+                        className="w-full"
+                    >
+                        {blok.tab_images?.map((img: any) => (
+                            <SwiperSlide key={img._uid} className="w-auto!">
+                                <Image
+                                    src={img.image?.filename}
+                                    alt="Tab Images"
+                                    width={197}
+                                    height={486}
+                                    className="object-cover rounded-[10px] w-[300px] md:max-w-[197px] h-[365px] md:h-[486px]"
+                                />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
             </div>
         </section>
     );
