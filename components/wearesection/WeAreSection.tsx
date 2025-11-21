@@ -77,7 +77,7 @@ export default function WeAreSection({ blok }: any) {
             < div className="w-full xl:w-1/2 flex flex-col justify-center px-5 max-xl:pt-[200px] py-24 gap-5 md:gap-10" >
 
                 <div className="flex flex-col gap-7">
-                    <h2 className="text-sm text-[#7A5238] font-termina font-medium uppercase  ">
+                    <h2 className="text-sm text-[#7A5238] font-termina font-medium uppercase">
                         {blok.section_label}
                     </h2>
 
