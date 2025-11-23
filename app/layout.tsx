@@ -22,6 +22,7 @@ import BeautySection from "@/components/beautysection/BeautySection";
 import ReviewSection from "@/components/reviewsection/ReviewSection";
 import PlaySection from "@/components/playsection/PlaySection";
 import SocialSection from "@/components/socialsection/SocialSection";
+import FooterSection from "@/components/footersection/FooterSection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,6 +62,7 @@ storyblokInit({
     review_section: ReviewSection,
     play_section: PlaySection,
     social_section: SocialSection,
+    footer_section: FooterSection,
   },
 });
 
