@@ -9,7 +9,7 @@ export default function SocialSection({ blok }: any) {
   return (
     <section
       {...storyblokEditable(blok)}
-      className="relative flex flex-col justify-center items-center px-5 md:px-[100px] py-10 gap-7 overflow-hidden"
+      className="relative flex flex-col px-5 md:px-[100px] py-10 gap-7 overflow-hidden"
     >
 
       <div className="absolute -z-1 -top-90 md:-top-60 -right-120 md:-right-10">
@@ -31,8 +31,8 @@ export default function SocialSection({ blok }: any) {
           if (images.length === 1) {
             const img = images[0];
             return (
-              <div key={imgBlock._uid} className="w-[163px] md:w-[313px]">
                 <Image
+                  key={imgBlock._uid}
                   src={img.filename}
                   alt={img.alt || ""}
                   width={313}
@@ -40,7 +40,6 @@ export default function SocialSection({ blok }: any) {
                   className="w-[163px] md:w-[313px] h-[270px] md:h-[476px] object-cover rounded-[10px]"
                   priority
                 />
-              </div>
             );
           }
 
@@ -95,15 +94,13 @@ export default function SocialSection({ blok }: any) {
               className="flex justify-center w-auto!"
             >
               {images.length === 1 && (
-                <div className="w-[163px] md:w-[313px]">
-                  <Image
-                    src={images[0].filename}
-                    width={313}
-                    height={476}
-                    alt={images[0].alt ?? ""}
-                    className="w-full h-[270px] md:h-[476px] object-cover rounded-[10px]"
-                  />
-                </div>
+                <Image
+                  src={images[0].filename}
+                  width={313}
+                  height={476}
+                  alt={images[0].alt ?? ""}
+                  className="w-full h-[270px] md:h-[476px] object-cover rounded-[10px]"
+                />
               )}
 
               {images.length === 2 && (
